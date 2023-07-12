@@ -12,7 +12,7 @@ def generate_article(word, writing_style, word_count):
         messages = [
             {'role':'user', 'content':f'Write an SEO optimized word article about {word}'},
             {'role':'user', 'content':f'This article should be in style {writing_style}'},
-            {'role': 'user', 'content': f'The article lenght should be {word_count}'}
+            {'role': 'user', 'content': f'The article lenght should be {str(word_count)}'}
         ]
     )
     result = ''
@@ -25,7 +25,7 @@ def generate_article(word, writing_style, word_count):
 
 keyword = st.text_input("Enter a Keyword")
 writing_style = st.selectbox("Select a writing style", ["Funny", "Sarcastic", "Academic"])
-word_count = st.slider("Select the word count", min_value=300, max_value=100, value=300)
+word_count = st.slider("Select the word count", min_value=300, max_value=1000, value=300)
 submit_button = st.button("Generate Article")
 
 if submit_button:
